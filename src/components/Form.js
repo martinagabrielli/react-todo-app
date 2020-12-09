@@ -10,10 +10,11 @@ const Form = ({setInputText, todos, setTodos, inputText}) => {
             ...todos, 
             {text: inputText, completed: false, id: Math.random() * 1000}
         ])
+        setInputText('')
     }
     return(
         <form>
-            <input onInput={inputTextHandler} type="text" className="todo-input" />
+            <input value={inputText} onInput={inputTextHandler} type="text" className="todo-input" />
             <button onClick={submitTodoHandler} className="todo-button" type="submit">
             <i className="fas fa-plus-square"></i>
             </button>
