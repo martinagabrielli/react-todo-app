@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Form = (props) => {
+const Form = ({setInputText, todos, setTodos, inputText}) => {
     const inputTextHandler = (e) => {
-        props.setInputText(e.target.value)
+        setInputText(e.target.value)
     }
     const submitTodoHandler = (e) => {
         e.preventDefault() // to prevent page reload when the user submits the button
+        setTodos([
+            ...todos, 
+            {text: inputText, completed: false, id: Math.random() * 1000}
+        ])
     }
     return(
         <form>
