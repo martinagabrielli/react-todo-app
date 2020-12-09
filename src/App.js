@@ -12,6 +12,7 @@ function App() {
   
   useEffect(() => {
     filterHandler()
+    saveLocalTodos()
   }, [todos, status])
 
   const filterHandler = () => {
@@ -25,6 +26,15 @@ function App() {
       default:
         setFilteredTodos(todos)
         break
+    }
+  }
+
+  const saveLocalTodos = () => {
+    if(localStorage.getItem('todos') === null) {
+      localStorage.setItem('todos', JSON.stringify([]))
+    } else {
+      localStorage.setItem('todos', JSON.stringify(todos))
+      
     }
   }
 
