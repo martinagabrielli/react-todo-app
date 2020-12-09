@@ -5,7 +5,7 @@ const Form = (props) => {
         props.setInputText(e.target.value)
     }
     const submitTodoHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault() // to prevent page reload when the user submits the button
     }
     return(
         <form>
